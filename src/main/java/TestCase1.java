@@ -94,6 +94,11 @@ public class TestCase1 {
 
     }
 
+    @AfterClass
+    void()
+    {
+        driver.quit();
+    }
 
 
 
