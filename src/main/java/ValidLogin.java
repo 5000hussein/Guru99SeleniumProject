@@ -4,11 +4,11 @@ import org.testng.annotations.*;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import dev.failsafe.internal.util.Assert;
+
 import static org.testng.Assert.assertEquals;
 
 
-public class TestCase1 {
+public class ValidLogin {
 
     WebDriver driver;
 
@@ -17,13 +17,13 @@ public class TestCase1 {
     {
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
-        driver.get("https://www.demo.guru99.com/V4/");
-        driver.manage().window().maximize();
     }
 
     @Test
     void SS1 ()
     {
+        driver.get("https://www.demo.guru99.com/V4/");
+        driver.manage().window().maximize();
         driver.findElement(By.name("uid")).sendKeys("mngr471726");
 
         driver.findElement(By.name("password")).sendKeys("mAgebAj");
@@ -34,9 +34,6 @@ public class TestCase1 {
         String expected = "Welcome To Manager's Page of Guru99 Bank";
 
         assertEquals(message1,expected);
-
-
-
     }
 
     @Test(dependsOnMethods = {"SS1"})
@@ -47,11 +44,15 @@ public class TestCase1 {
 
     }
 
-    @AfterClass
-    public void Quit()
-    {
-        driver.quit();
-    }
+
+
+        @AfterClass
+        void exit()
+        {
+            driver.quit();
+        }
+
+
 
 
 

@@ -3,9 +3,10 @@
 <suite name="All Test Suite">
     <test verbose="2" preserve-order="true" name="C:/CS/GuruSeleniumProject/pom.xml">
         <classes>
-            <class name="TestCase1">
 
-            </class>
+            <class name="ValidLogin"/>
+            <class name="InvalidLogin"/>
+
         </classes>
     </test>
 </suite>
