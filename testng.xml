@@ -11,12 +11,20 @@
                     <include name="SS4"/>
                 </methods>
             </class>
+
                 <class name="ValidLogin">
                     <methods>
                         <include name="SS1"/>
                         <include name="SS1d"/>
                     </methods>
                 </class>
+
+            <class name="InvalidLoginWithDataProvider">
+                <methods>
+                    <include name="InvalidLogin"/>
+                </methods>
+            </class>
+
         </classes>
     </test>
 </suite>
