@@ -1,12 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="All Test Suite">
-    <test verbose="2" preserve-order="true" name="C:/CS/GuruSeleniumProject/pom.xml">
+    <test verbose="2" preserve-order="true" name="C:/CS/GuruSeleniumProject/src/main/java/ValidLogin.java">
         <classes>
 
-            <class name="ValidLogin"/>
-            <class name="InvalidLogin"/>
-
+            <class name="InvalidLogin">
+                <methods>
+                    <include name="SS2"/>
+                    <include name="SS3"/>
+                    <include name="SS4"/>
+                </methods>
+            </class>
+                <class name="ValidLogin">
+                    <methods>
+                        <include name="SS1"/>
+                        <include name="SS1d"/>
+                    </methods>
+                </class>
         </classes>
     </test>
 </suite>

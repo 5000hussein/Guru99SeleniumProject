@@ -17,17 +17,16 @@ public class ValidLogin {
     {
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
+        driver.get("https://www.demo.guru99.com/V4/");
+        driver.manage().window().maximize();
     }
 
     @Test
     void SS1 ()
     {
-        driver.get("https://www.demo.guru99.com/V4/");
-        driver.manage().window().maximize();
+
         driver.findElement(By.name("uid")).sendKeys("mngr471726");
-
         driver.findElement(By.name("password")).sendKeys("mAgebAj");
-
         WebElement login = driver.findElement(By.name("btnLogin"));
         login.click();
         String message1 = driver.findElement(By.xpath("(//marquee[@class='heading3'])[1]")).getText();
@@ -46,15 +45,10 @@ public class ValidLogin {
 
 
 
-        @AfterClass
-        void exit()
-        {
-            driver.quit();
-        }
-
-
-
-
-
-
+    @AfterClass
+    void exit()
+    {
+        driver.quit();
+    }
+    
 }
