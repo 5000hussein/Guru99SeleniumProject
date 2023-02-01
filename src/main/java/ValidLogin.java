@@ -1,12 +1,14 @@
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.testng.annotations.*;
 import io.github.bonigarcia.wdm.WebDriverManager;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-
+import org.apache.commons.io.FileUtils;
+import java.io.File;
+import org.openqa.selenium.OutputType;
 import static org.testng.Assert.assertEquals;
-
+import org.openqa.selenium.TakesScreenshot;
+import java.io.IOException;
+import java.util.Date;
 
 public class ValidLogin {
 
@@ -22,8 +24,7 @@ public class ValidLogin {
     }
 
     @Test
-    void SS1 ()
-    {
+    void SS1 () throws IOException {
 
         driver.findElement(By.name("uid")).sendKeys("mngr471726");
         driver.findElement(By.name("password")).sendKeys("mAgebAj");
@@ -31,8 +32,13 @@ public class ValidLogin {
         login.click();
         String message1 = driver.findElement(By.xpath("(//marquee[@class='heading3'])[1]")).getText();
         String expected = "Welcome To Manager's Page of Guru99 Bank";
-
+        TakesScreenshot ValidLogin = ((TakesScreenshot) driver);
+        File SrcFile = ValidLogin.getScreenshotAs(OutputType.FILE);
+        Date currentDate = new Date();
+        String date = currentDate.toString().replace(" ","-").replace(":","-");
+        FileUtils.copyFile(SrcFile, new File(".//screenshot/"+date+"ValidLogin.png"));
         assertEquals(message1,expected);
+
     }
 
     @Test(dependsOnMethods = {"SS1"})
